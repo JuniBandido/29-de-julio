@@ -45,6 +45,5 @@ def ShowOownersAndVehicles():
                 print(f"Año: {y['año']}")
                 print(f"Impuesto pagado? {y['impuesto']}")
 
-AddOwner()
-ShowOownersAndVehicles()
+
 
