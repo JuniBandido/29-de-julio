@@ -43,3 +43,48 @@ def ShowAllProducts():
         print(f"Talla: {i['talla']}")
         print(f"Precio: {i['precio']}")
         print(f"Cantidad en stock: {i['cantidad']}")
+
+def SpecificProduct():
+    show_prodcut = input("Ingresa el codico del producto que quieres ver: ")
+    print(productos[show_prodcut])
+
+def TotalValue():
+    total = 0
+    for code, i in productos.items():
+        total_value = i['precio'] * i['cantidad']
+        print(f"El valor total de {i['nombre']} es de {total_value}")
+        total += total_value
+    print(f"El patrimonio del inventario es de {total}")
+
+def ShowByCategory():
+    show = input("Ingrese la categoria a mostrar: ")
+    for code, i in productos.items():
+        if productos[code]['categoria'] == show:
+            print(f"- - -  Producto encontrado por cateogría {show} - - -")
+            print(f"Código: {i['codigo']}")
+            print(f"Nombre: {i['nombre']}")
+            print(f"Categoría: {i['categoria']}")
+            print(f"Talla: {i['talla']}")
+            print(f"Precio: {i['precio']}")
+            print(f"Cantidad en stock: {i['cantidad']}")
+
+while True:
+    print("\n1. Mostrar lista de productos"
+          "\n2. Mostrar código por producto"
+          "\n3. Calcular valor total de inventario"
+          "\n4. Mostrar cuantos productos hay por categoría"
+          "\n5. Salir")
+    option = input("Seleccione una opcion (1-5): ")
+    match option:
+        case "1":
+            ShowAllProducts()
+        case "2":
+            SpecificProduct()
+        case "3":
+            TotalValue()
+        case "4":
+            ShowByCategory()
+        case "5":
+            break
+        case _:
+            print("opcion no valida")
