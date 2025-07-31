@@ -44,6 +44,3 @@ def ShowOownersAndVehicles():
                 print(f"Modelo: {y['modelo']}")
                 print(f"Año: {y['año']}")
                 print(f"Impuesto pagado? {y['impuesto']}")
-
-
-
