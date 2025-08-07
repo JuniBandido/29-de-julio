@@ -16,7 +16,7 @@ def addCurse():
     if soli in estudiantes:
         name_curse = input("Agregue el nombre del curso: ")
         note_curse = int(input("Agregue la calificacion del curso: "))
-        estudiantes[soli]['cursos'] = {
+        estudiantes[soli][name_curse] = {
             'nombreCurso': name_curse,
             'notaCurso': note_curse
         }
@@ -32,12 +32,21 @@ def showStudent():
             print(f"\nNombre del curso: {i['cursos']['nombreCurso']}")
             print(f"\nNota de curso: {i['cursos']['notaCurso']}\n")
 
+def calcPromedy():
+    action = input("Ingresa el id del estudiante: ")
+    if action in estudiantes:
+        suma = 0
+        for action, i in estudiantes.items():
+            suma += i
+            print(f"\nEl promedio de tus calificaciones es de {suma / i}")
+
 while True:
     print("1. Agregar estudiante\n"
           "2. Agregar curso\n"
           "3. Mostrar información\n"
-          "4. Salir\n")
-    menu = input("Escoge una opción (1-4): ")
+          "4. Calcular Promedio\n"
+          "5. Salir\n")
+    menu = input("Escoge una opción (1-5): ")
     match menu:
         case "1":
             addStudents()
@@ -46,6 +55,13 @@ while True:
         case "3":
             showStudent()
         case "4":
+            calcPromedy()
+        case "5":
             break
         case _:
             print("Opcion no válida\n")
+
+addStudents()
+addCurse()
+addCurse()
+print(estudiantes)
